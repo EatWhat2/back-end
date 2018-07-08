@@ -1,0 +1,9 @@
+version: '3'
+services:
+  eatwhat:
+    build: .
+    command: python3 app.py
+    stdin_open: true
+    tty: true
+    ports:
+      - "12345:8888"

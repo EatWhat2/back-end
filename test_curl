@@ -1,0 +1,45 @@
+
+curl -X POST http://localhost:8888/shopping_list -d '{
+    "customer_id": "zyf",
+    "restaurant_id": "eatme_res",
+    "table_No":"110",
+    "shopping_list":[
+        {
+            "food_id":1,
+            "num":2
+        }
+    ]
+}'
+
+curl -X POST http://localhost:8888/restaurant_login -d '{
+    "restaurant_id": "eatme_res",
+    "password": 123
+}'
+
+curl -X POST http://localhost:8888/restaurant_status -d '{
+    "restaurant_id": "eatme_res",
+    "status": 1
+}'
+
+curl -X POST http://localhost:8888/table_order -d '{
+    "customer_id": "zyf",
+    "restaurant_id": "eatme_res",
+    "date": "2018-01-01 13:59:59",
+    "price": 35.5,
+    "table_No": "1",
+    "food": [
+        {
+            "food_id": 1,
+            "num": 2
+        },
+        {
+            "food_id": 2,
+            "num": 1
+        }
+    ]
+}'
+
+curl -X POST http://localhost:8887/restaurant_food -d '{
+    "restaurant_id": "eatme_res",
+    "food":[{"num": 10, "price": 25, "detail": "1", "food_id": 1, "food_name": "麻辣香锅", "food_type": "staple", "image_url": "/img/1.png"}, {"num": 10, "price": 13, "detail": "2", "food_id": 2, "food_name": "台湾卤肉饭", "food_type": "staple", "image_url": "/img/2.png"},{"num": 10, "price": 13, "detail": "2", "food_id": 2, "food_name": "dimsum", "food_type": "staple", "image_url": "/img/2.png"}]
+}'
